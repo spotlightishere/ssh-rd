@@ -9,7 +9,7 @@
  * Method:    fuzzy_patch
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Z
  */
-JNIEXPORT jboolean JNICALL Java_Jsyringe_fuzzy_1patch
+JNIEXPORT jboolean JNICALL Java_gui_Jsyringe_fuzzy_1patch
   (JNIEnv * env, jclass jClass, jstring Jorig, jstring Jpatched, jstring Jdelta, jint fuzz)
 {
 	jboolean result = JNI_FALSE;
@@ -26,7 +26,7 @@ JNIEXPORT jboolean JNICALL Java_Jsyringe_fuzzy_1patch
 	if (0 == patchFiles(orig, patched, delta)) {
 		result = JNI_TRUE;
 	}
-	
+
 	JFREE(orig);
 	JFREE(patched);
 	JFREE(delta);
@@ -60,7 +60,7 @@ static jboolean itmd_ensure()
  * Method:    restore_bundle
  * Signature: (Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_Jsyringe_restore_1bundle
+JNIEXPORT jboolean JNICALL Java_gui_Jsyringe_restore_1bundle
   (JNIEnv * env, jclass jClass, jstring JbundlePath)
 {
 	jboolean jresult = JNI_FALSE;
@@ -85,7 +85,7 @@ typedef struct {
 void javaMobileDeviceCallbackProc(void* ctx, int eventType, int productId, int productType)
 {
     PJAVA_CALLBACK_CONTEXT pctx = (PJAVA_CALLBACK_CONTEXT)ctx;
-        
+
     jclass mobileDeviceClass = (*pctx->env)->GetObjectClass(pctx->env, pctx->jObject);
     //const char* callbackSignature = "(ILjava/lang/String;Ljava/lang/String;)V";
     const char* callbackSignature = "(III)V";
@@ -104,20 +104,20 @@ cleanup:
  * Method:    runMobileDeviceThread
  * Signature: (LMobileDevice;)V
  */
-JNIEXPORT void JNICALL Java_Jsyringe_runMobileDeviceThread
+JNIEXPORT void JNICALL Java_gui_Jsyringe_runMobileDeviceThread
 (JNIEnv * env, jclass jClass, jobject jObject)
 {
     PJAVA_CALLBACK_CONTEXT pctx = (PJAVA_CALLBACK_CONTEXT)malloc(sizeof(JAVA_CALLBACK_CONTEXT));
     pctx->env = env;
     pctx->jClass = jClass;
     pctx->jObject = jObject;
-    
+
     if (!itmd_ensure())
 		goto cleanup;
 
 	itmd_run(javaMobileDeviceCallbackProc, pctx);
 
-cleanup:  
+cleanup:
 
     return;
 }
@@ -127,7 +127,7 @@ cleanup:
  * Method:    startMuxThread
  * Signature: (II)Z
  */
-JNIEXPORT jboolean JNICALL Java_Jsyringe_startMuxThread
+JNIEXPORT jboolean JNICALL Java_gui_Jsyringe_startMuxThread
 (JNIEnv * env, jclass jClass, jint iport, jint lport)
 {
     jboolean jresult = JNI_FALSE;
@@ -140,4 +140,3 @@ JNIEXPORT jboolean JNICALL Java_Jsyringe_startMuxThread
 cleanup:
 	return jresult;
 }
-

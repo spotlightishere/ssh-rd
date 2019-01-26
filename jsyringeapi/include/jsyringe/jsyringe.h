@@ -12,7 +12,7 @@ extern "C" {
  * Method:    download_file_from_zip
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_Jsyringe_download_1file_1from_1zip
+JNIEXPORT jint JNICALL Java_gui_Jsyringe_download_1file_1from_1zip
   (JNIEnv *, jclass, jstring, jstring, jstring);
 
 /*
@@ -20,7 +20,7 @@ JNIEXPORT jint JNICALL Java_Jsyringe_download_1file_1from_1zip
  * Method:    exploit
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_Jsyringe_exploit
+JNIEXPORT jint JNICALL Java_gui_Jsyringe_exploit
   (JNIEnv *, jclass);
 
 /*
@@ -28,7 +28,7 @@ JNIEXPORT jint JNICALL Java_Jsyringe_exploit
  * Method:    process_img3_file
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_Jsyringe_process_1img3_1file
+JNIEXPORT jboolean JNICALL Java_gui_Jsyringe_process_1img3_1file
   (JNIEnv *, jclass, jstring, jstring, jstring, jstring, jstring);
 
 /*
@@ -36,7 +36,7 @@ JNIEXPORT jboolean JNICALL Java_Jsyringe_process_1img3_1file
  * Method:    add_ssh_to_ramdisk
  * Signature: (Ljava/lang/String;Ljava/lang/String;J)Z
  */
-JNIEXPORT jboolean JNICALL Java_Jsyringe_add_1ssh_1to_1ramdisk
+JNIEXPORT jboolean JNICALL Java_gui_Jsyringe_add_1ssh_1to_1ramdisk
   (JNIEnv *, jclass, jstring, jstring, jlong);
 
 /*
@@ -44,7 +44,7 @@ JNIEXPORT jboolean JNICALL Java_Jsyringe_add_1ssh_1to_1ramdisk
  * Method:    fuzzy_patch
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Z
  */
-JNIEXPORT jboolean JNICALL Java_Jsyringe_fuzzy_1patch
+JNIEXPORT jboolean JNICALL Java_gui_Jsyringe_fuzzy_1patch
   (JNIEnv *, jclass, jstring, jstring, jstring, jint);
 
 /*
@@ -52,7 +52,7 @@ JNIEXPORT jboolean JNICALL Java_Jsyringe_fuzzy_1patch
  * Method:    restore_bundle
  * Signature: (Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_Jsyringe_restore_1bundle
+JNIEXPORT jboolean JNICALL Java_gui_Jsyringe_restore_1bundle
   (JNIEnv *, jclass, jstring);
 
 /*
@@ -60,7 +60,7 @@ JNIEXPORT jboolean JNICALL Java_Jsyringe_restore_1bundle
  * Method:    runMobileDeviceThread
  * Signature: (LMobileDevice;)V
  */
-JNIEXPORT void JNICALL Java_Jsyringe_runMobileDeviceThread
+JNIEXPORT void JNICALL Java_gui_Jsyringe_runMobileDeviceThread
   (JNIEnv *, jclass, jobject);
 
 /*
@@ -68,7 +68,7 @@ JNIEXPORT void JNICALL Java_Jsyringe_runMobileDeviceThread
  * Method:    startMuxThread
  * Signature: (II)Z
  */
-JNIEXPORT jboolean JNICALL Java_Jsyringe_startMuxThread
+JNIEXPORT jboolean JNICALL Java_gui_Jsyringe_startMuxThread
   (JNIEnv *, jclass, jint, jint);
 
 #ifdef __cplusplus

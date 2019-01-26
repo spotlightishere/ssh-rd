@@ -12,7 +12,7 @@ static const char* g_model = NULL;
  * Method:    download_file_from_zip
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jint JNICALL Java_Jsyringe_download_1file_1from_1zip
+JNIEXPORT jint JNICALL Java_gui_Jsyringe_download_1file_1from_1zip
   (JNIEnv * env, jclass jClassObj, jstring Jurl, jstring Jpath, jstring Joutput)
 {
 	jint result = -1;
@@ -34,7 +34,7 @@ JNIEXPORT jint JNICALL Java_Jsyringe_download_1file_1from_1zip
  * Method:    wait_for_connect
  * Signature: (I)Ljava/lang/Boolean;
  */
-JNIEXPORT jboolean JNICALL Java_Jsyringe_wait_1for_1connect
+JNIEXPORT jboolean JNICALL Java_gui_Jsyringe_wait_1for_1connect
   (JNIEnv *env, jclass jClass)
 {
 	jboolean jresult = JNI_FALSE;
@@ -101,7 +101,7 @@ int tethered_boot(const char *ibssFile, const char *ibecFile, const char *kernel
 			result = -1;
 			goto cleanup;
 		}
-		
+
 		sleep(10);
 
 	} else {
@@ -144,7 +144,7 @@ int tethered_boot(const char *ibssFile, const char *ibecFile, const char *kernel
 			error("Unable send the ramdisk command\n");
 			result = -1;
 			goto cleanup;
-		}	
+		}
 	}
 
 	if (devicetreeFile != NULL) {
@@ -164,7 +164,7 @@ int tethered_boot(const char *ibssFile, const char *ibecFile, const char *kernel
 			goto cleanup;
 		}
 	}
-	
+
 	if (kernelcacheFile != NULL) {
 		debug("Uploading kernel %s to device, mode: 0x%x\n", kernelcacheFile, client->mode);
 		ir_error = irecv_send_file(client, kernelcacheFile, 1);
@@ -195,7 +195,7 @@ cleanup:
 		irecv_close(&g_syringe_client);
 		g_syringe_client = NULL;
 	}
-	
+
 	//pois0n_exit();
 	return result;
 }
@@ -208,7 +208,7 @@ cleanup:
 // * Method:    tethered_boot
 // * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 // */
-//JNIEXPORT jint JNICALL Java_Jsyringe_tethered_1boot
+//JNIEXPORT jint JNICALL Java_gui_Jsyringe_tethered_1boot
 //  (JNIEnv * env, jclass jClass, jstring JibssFile, jstring JibecFile, jstring JkernelcacheFile, jstring JramdiskFile, jstring JdevicetreeFile)
 //{
 //	const char *ibssFile, *ibecFile, *kernelcacheFile, *ramdiskFile, *devicetreeFile;
@@ -236,7 +236,7 @@ cleanup:
  * Method:    get_device_model
  * Signature: ()Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_Jsyringe_get_1device_1model
+JNIEXPORT jstring JNICALL Java_gui_Jsyringe_get_1device_1model
   (JNIEnv *env, jclass jClass)
 {
 	return (*env)->NewStringUTF(env, g_model == NULL ? "" : g_model);
@@ -256,7 +256,7 @@ BOOL WINAPI DllMain(
 	return TRUE;
 }
 
-#else 
+#else
 
 extern void initializer_proc() __attribute__((constructor));
 void initializer_proc()
@@ -272,7 +272,7 @@ void initializer_proc()
  * Method:    exploit
  * Signature: ()I
  */
-JNIEXPORT jint JNICALL Java_Jsyringe_exploit
+JNIEXPORT jint JNICALL Java_gui_Jsyringe_exploit
   (JNIEnv * env, jclass jClass)
 {
 	int result = 0;
@@ -308,9 +308,9 @@ cleanup:
 		irecv_close(&g_syringe_client);
 		g_syringe_client = NULL;
 	}
-	
+
 	//pois0n_exit();
 	return result;
 }
-// ping 
+// ping
 // irecv_get_string_descriptor_ascii
