@@ -1,4 +1,4 @@
-SDK_ROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+SDK_ROOT=$(shell xcrun --show-sdk-path)
 CFLAGS=-force_cpusubtype_ALL -mmacosx-version-min=10.6 -arch x86_64 \
 	-F$(SDK_ROOT)/System/Library/Frameworks -DMUX_BUILD=1 \
 	-F$(SDK_ROOT)/System/Library/PrivateFrameworks
