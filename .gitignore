@@ -27,10 +27,10 @@ java/.metadata
 
 # Java project
 java/gui/src/res/native
-java/gui/bin
+java/gui/.git
 java/gui/build
-java/gui/.classpath
-java/gui/*.log
+java/gui/.gradle
+java/gui/.idea
 
 # jsyringeapi
 jsyringeapi/test
