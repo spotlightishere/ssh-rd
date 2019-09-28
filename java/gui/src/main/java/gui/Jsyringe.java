@@ -1,3 +1,4 @@
+package gui;
 public class Jsyringe {
 	private static final String nativeDir = "native";
 	private static final String native_lib = "jsyringeapi";
@@ -44,11 +45,11 @@ public class Jsyringe {
 			System.load(jsapi_tmp);
 			return true;
 		} catch (UnsatisfiedLinkError ule) {
-			gui.err(ule);
+			Main.err(ule);
 		} catch (Exception e) {
-			gui.exc(e);
+			Main.exc(e);
 		}
-		gui.error("FATAL: Cannot load native libraries; make sure you're using 32-bit JRE if on Windows!");
+		Main.error("FATAL: Cannot load native libraries; make sure you're using 32-bit JRE if on Windows!");
 		return false;
 	}
 

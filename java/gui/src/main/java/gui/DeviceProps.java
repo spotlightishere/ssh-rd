@@ -1,4 +1,4 @@
-
+package gui;
 public class DeviceProps {
 	public final String displayName;
 	public final String apName;

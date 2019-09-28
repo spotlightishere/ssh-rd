@@ -1,3 +1,4 @@
+package gui;
 import java.util.*;
 
 public final class Device {
@@ -9,7 +10,7 @@ public final class Device {
 	static ArrayList<DeviceProps> supportedDevices;
 		
 	static {
-		supportedDevices = new ArrayList<DeviceProps>();
+		supportedDevices = new ArrayList<>();
 		supportedDevices.add(new DeviceProps("DFU Mode S5L8900 Device", "m68ap", 0x8900, 0x0, true));
 		supportedDevices.add(new DeviceProps("iPhone 2G", "m68ap", 0x8900, 0x1100));
 		supportedDevices.add(new DeviceProps("iPhone 3G", "n82ap", 0x8900, 0x3100));
@@ -61,6 +62,7 @@ public final class Device {
 	
 	public Device(int productId, int productType)
 	{
+		Main.log("product ID: %d, product type: %d", productId, productType);
 		this.productId = productId;
 		this.productType = productType;
 		int dfuCheck = (productType >> 16) & 0xFFFF;

@@ -1,0 +1,42 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.1.0'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: 'com.googlecode.plist', name: 'dd-plist', version: '1.22'
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.12.1'
+    compile group: 'commons-cli', name: 'commons-cli', version: '1.4'
+}
+
+application {
+    // Define the main class for the application
+    mainClassName = 'gui.Main'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'hello.HelloWorld'
+        )
+    }
+}
+
+shadowJar {
+    minimize()
+}
