@@ -4,3 +4,6 @@
 [submodule "xpwn"]
 	path = xpwn
 	url = git://github.com/msftguy/xpwn.git 
+[submodule "mux_redux/idevicerestore"]
+	path = mux_redux/idevicerestore
+	url = https://github.com/libimobiledevice/idevicerestore
